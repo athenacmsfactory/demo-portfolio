@@ -21,11 +21,11 @@ function Header({ siteSettings = {} }) {
         {/* Logo & Identity */}
         <Link to="/" className="flex items-center gap-4 group">
           
-          <div className="relative w-12 h-12 overflow-hidden rounded-2xl shadow-xl shadow-accent/20 group-hover:scale-105 transition-transform duration-500 bg-accent">
+          <div className="relative w-12 h-12 overflow-hidden transition-transform duration-500">
              <EditableMedia 
                src={displayLogo} 
                cmsBind={{file: 'site_settings', index: 0, key: 'site_logo_image'}} 
-               className="w-full h-full object-cover" 
+               className="w-full h-full object-contain" 
                fallback={logoChar}
              />
           </div>
