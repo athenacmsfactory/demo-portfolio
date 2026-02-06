@@ -3,11 +3,12 @@ import EditableText from './EditableText';
 import EditableLink from './EditableLink';
 
 export default function Footer({ data }) {
-  const siteSettings = data?.site_settings || {};
+  const settingsSource = data?.site_settings || {};
+  const settings = Array.isArray(settingsSource) ? (settingsSource[0] || {}) : settingsSource;
   const contactInfo = data?.contact?.[0] || {};
   
-  const naam = siteSettings.site_name || 'demo-portfolio';
-  const email = contactInfo.email || siteSettings.email || '';
+  const naam = settings.site_name || 'demo-portfolio';
+  const email = contactInfo.email || settings.email || '';
   const locatie = contactInfo.location || '';
   const btw = contactInfo.btw_nummer || contactInfo.btw || '';
   const linkedin = contactInfo.linkedin_url || contactInfo.linkedin || '';
@@ -24,9 +25,9 @@ export default function Footer({ data }) {
             <h3 className="text-3xl font-serif font-bold text-white">
               <EditableText value={naam} cmsBind={{file: 'site_settings', index: 0, key: 'site_name'}} />
             </h3>
-            {siteSettings.tagline && (
+            {settings.tagline && (
               <p className="text-lg leading-relaxed font-light">
-                <EditableText value={siteSettings.tagline} cmsBind={{file: 'site_settings', index: 0, key: 'tagline'}} />
+                <EditableText value={settings.tagline} cmsBind={{file: 'site_settings', index: 0, key: 'tagline'}} />
               </p>
             )}
           </div>
@@ -74,7 +75,7 @@ export default function Footer({ data }) {
                 </p>
               )}
               <p className="text-sm font-light leading-relaxed">
-                <EditableText value={siteSettings.footer_text || 'Professionele website geleverd door Athena CMS Factory.'} cmsBind={{file: 'site_settings', index: 0, key: 'footer_text'}} />
+                <EditableText value={settings.footer_text || 'Professionele website geleverd door Athena CMS Factory.'} cmsBind={{file: 'site_settings', index: 0, key: 'footer_text'}} />
               </p>
             </div>
           </div>
