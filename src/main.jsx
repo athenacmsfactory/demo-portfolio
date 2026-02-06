@@ -18,6 +18,7 @@ async function init() {
     data['section_order'] = getData('section_order') || [];
     data['site_settings'] = getData('site_settings') || {};
     data['display_config'] = getData('display_config') || { sections: {} };
+    data['layout_settings'] = getData('layout_settings') || {};
     for (const sectionName of data['section_order']) {
         const sectionData = getData(sectionName);
         data[sectionName] = sectionData ? (Array.isArray(sectionData) ? sectionData : [sectionData]) : [];
