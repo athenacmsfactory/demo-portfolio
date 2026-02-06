@@ -71,7 +71,7 @@ const Section = ({ data }) => {
 
         if (sectionName.includes('product') || sectionName.includes('shop')) {
           return (
-            <section key={idx} data-dock-section={sectionName} className="py-24 px-6 bg-background">
+            <section key={idx} id={sectionName} data-dock-section={sectionName} className="py-24 px-6 bg-background">
               <div className="max-w-7xl mx-auto">
                 <h2 className="text-4xl font-serif font-bold mb-16 text-center text-primary uppercase tracking-widest">{sectionName.replace(/_/g, ' ')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -105,7 +105,7 @@ const Section = ({ data }) => {
         }
 
         return (
-          <section key={idx} data-dock-section={sectionName} className={'py-24 px-6 ' + (idx % 2 === 1 ? 'bg-slate-50' : 'bg-white')}>
+          <section key={idx} id={sectionName} data-dock-section={sectionName} className={'py-24 px-6 ' + (idx % 2 === 1 ? 'bg-slate-50' : 'bg-white')}>
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col items-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary text-center mb-4 capitalize">
